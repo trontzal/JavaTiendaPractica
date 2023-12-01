@@ -29,7 +29,7 @@ public class DaoProductoSqlitePrueba {
 			switch (opcion) {
 			case 1:
 				System.out.println("Listado de productos:");
-				for (Productos p : dao.obtenerTodos()) {
+				for (Productos p : dao.obtenerTodos()) { 
 					System.out.println(p);
 				}
 				break;
