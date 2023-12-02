@@ -29,4 +29,24 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/AdminServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListadoAdminServlet</display-name>
+    <servlet-name>ListadoAdminServlet</servlet-name>
+    <servlet-class>com.tienda.presentacion.backend.admin.ListadoAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListadoAdminServlet</servlet-name>
+    <url-pattern>/ListadoAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>eliminarProductoServlet</display-name>
+    <servlet-name>eliminarProductoServlet</servlet-name>
+    <servlet-class>com.tienda.presentacion.backend.admin.eliminarProductoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>eliminarProductoServlet</servlet-name>
+    <url-pattern>/eliminarProductoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

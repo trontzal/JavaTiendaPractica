@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin/productos")
+@WebServlet("/admin/crearProducto")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,7 +46,7 @@ public class AdminServlet extends HttpServlet {
 		// 2. Convertir la información
 		Long id = sId.trim().length() == 0 ? null : Long.parseLong(sId);
 		BigDecimal precio = new BigDecimal(sPrecio);
-		LocalDate fecha = LocalDate.parse(sFecha);
+		LocalDate fecha = sFecha.isEmpty() ? null : LocalDate.parse(sFecha);
 
 		// 3. Convertir en modelo
 		Productos producto = new Productos(id, nombre, precio, fecha);

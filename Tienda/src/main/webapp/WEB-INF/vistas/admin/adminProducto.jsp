@@ -10,7 +10,7 @@
 <title>Formulario Producto</title>
 </head>
 <body>
-	<form action="producto" method="post">
+	<form action="/Tienda/admin/crearProducto" method="post">
 		<div>
 			<label for="id">Id</label> <input readonly name="id" id="id"
 				value="${producto.id}">

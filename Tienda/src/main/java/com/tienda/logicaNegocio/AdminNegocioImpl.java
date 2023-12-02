@@ -16,4 +16,9 @@ public class AdminNegocioImpl extends UsuarioNegocioImpl implements AdminNegocio
 	public void eliminarProducto(Long id) {
 		dao.borrar(id);
 	}
+
+	@Override
+	public Productos editarProducto(Productos producto) {
+		return dao.modificar(producto);
+	}
 }
