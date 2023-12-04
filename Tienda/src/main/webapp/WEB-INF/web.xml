@@ -49,4 +49,14 @@
     <servlet-name>eliminarProductoServlet</servlet-name>
     <url-pattern>/eliminarProductoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModificarProductoServlet</display-name>
+    <servlet-name>ModificarProductoServlet</servlet-name>
+    <servlet-class>com.tienda.presentacion.backend.admin.ModificarProductoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificarProductoServlet</servlet-name>
+    <url-pattern>/ModificarProductoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -28,6 +28,7 @@
 						<td>
 							<button formaction="${pageContext.request.contextPath}/admin/eliminar?id=${p.id}">Eliminar</button>
 						</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

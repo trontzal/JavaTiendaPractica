@@ -36,28 +36,28 @@ public class AdminServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// 1. Recoger los datos de la petición
-		String sId = request.getParameter("id"); // name="id"
-		String nombre = request.getParameter("nombre"); // name="nombre"
-		String sPrecio = request.getParameter("precio");
-		String sFecha = request.getParameter("fecha");
+	        throws ServletException, IOException {
+	    String sId = request.getParameter("id");
+	    String nombre = request.getParameter("nombre");
+	    String sPrecio = request.getParameter("precio");
+	    String sFecha = request.getParameter("fecha");
 
-		// 2. Convertir la información
-		Long id = sId.trim().length() == 0 ? null : Long.parseLong(sId);
-		BigDecimal precio = new BigDecimal(sPrecio);
-		LocalDate fecha = sFecha.isEmpty() ? null : LocalDate.parse(sFecha);
+	    Long id = sId.trim().isEmpty() ? null : Long.parseLong(sId);
+	    BigDecimal precio = new BigDecimal(sPrecio);
+	    LocalDate fecha = sFecha.isEmpty() ? null : LocalDate.parse(sFecha);
 
-		// 3. Convertir en modelo
-		Productos producto = new Productos(id, nombre, precio, fecha);
+	    Productos producto = new Productos(id, nombre, precio, fecha);
 
-		// 4. Ejecutar lógica de negocio
-		an.crearProducto(producto);
+	    if (id != null) {
+	        // Actualizar el producto existente
+	        an.editarProducto(producto); // Asume que tienes un método para actualizar en AdminNegocio
+	    } else {
+	        // Lógica de creación de un nuevo producto
+	        an.crearProducto(producto); // Este es el código que ya tienes para crear
+	    }
 
-		// 5. Generar información para la vista
-
-		// 6. Saltar a la vista
-		response.sendRedirect(request.getContextPath() + "/listado");
+	    // Redirigir a la página de listado o a donde necesites ir
+	    response.sendRedirect(request.getContextPath() + "/admin/listaProductos");
 	}
 
 }
