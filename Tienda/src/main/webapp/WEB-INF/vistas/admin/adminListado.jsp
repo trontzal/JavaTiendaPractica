@@ -26,6 +26,9 @@
 						<td>${p.precio}</td>
 						<td>${p.fechaCaducidad}</td>
 						<td>
+							<button formaction="${pageContext.request.contextPath}/admin/crearProducto?id=${p.id}">Editar</button>
+						</td>
+						<td>
 							<button formaction="${pageContext.request.contextPath}/admin/eliminar?id=${p.id}">Eliminar</button>
 						</td>
 						
@@ -34,6 +37,6 @@
 			</tbody>
 		</table>
 	</form>
-	<a href="admin/crearProducto">Crear nuevo</a>
+	<a href="crearProducto">Crear nuevo</a>
 </body>
 </html>

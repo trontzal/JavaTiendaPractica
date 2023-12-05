@@ -28,9 +28,10 @@ public class AdminServlet extends HttpServlet {
 		String sId = request.getParameter("id");
 
 		if (sId != null) {
-			Long id = Long.parseLong(sId);
-			request.setAttribute("producto", un.datosProducto(id));
-		}
+	        Long id = Long.parseLong(sId);
+	        Productos producto = un.datosProducto(id);
+	        request.setAttribute("producto", producto);
+	    }
 
 		request.getRequestDispatcher("/WEB-INF/vistas/admin/adminProducto.jsp").forward(request, response);
 	}
