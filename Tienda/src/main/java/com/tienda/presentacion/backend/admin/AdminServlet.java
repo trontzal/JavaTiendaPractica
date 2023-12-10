@@ -28,37 +28,40 @@ public class AdminServlet extends HttpServlet {
 		String sId = request.getParameter("id");
 
 		if (sId != null) {
-	        Long id = Long.parseLong(sId);
-	        Productos producto = un.datosProducto(id);
-	        request.setAttribute("producto", producto);
-	    }
+			Long id = Long.parseLong(sId);
+			Productos producto = un.datosProducto(id);
+			if (producto != null) {
+				request.setAttribute("producto", producto);
+			}
+		}
 
 		request.getRequestDispatcher("/WEB-INF/vistas/admin/adminProducto.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-	    String sId = request.getParameter("id");
-	    String nombre = request.getParameter("nombre");
-	    String sPrecio = request.getParameter("precio");
-	    String sFecha = request.getParameter("fecha");
+			throws ServletException, IOException {
+		String sId = request.getParameter("id");
+		String nombre = request.getParameter("nombre");
+		String sPrecio = request.getParameter("precio");
+		String sFecha = request.getParameter("fecha");
 
-	    Long id = sId.trim().isEmpty() ? null : Long.parseLong(sId);
-	    BigDecimal precio = new BigDecimal(sPrecio);
-	    LocalDate fecha = sFecha.isEmpty() ? null : LocalDate.parse(sFecha);
+		Long id = sId.trim().isEmpty() ? null : Long.parseLong(sId);
+		BigDecimal precio = (sPrecio != null && !sPrecio.trim().isEmpty()) ? new BigDecimal(sPrecio) : null;
+		LocalDate fecha = (sFecha != null && !sFecha.isEmpty()) ? LocalDate.parse(sFecha) : null;
 
-	    Productos producto = new Productos(id, nombre, precio, fecha);
 
-	    if (id != null) {
-	        // Actualizar el producto existente
-	        an.editarProducto(producto); // Asume que tienes un método para actualizar en AdminNegocio
-	    } else {
-	        // Lógica de creación de un nuevo producto
-	        an.crearProducto(producto); // Este es el código que ya tienes para crear
-	    }
+		Productos producto = new Productos(id, nombre, precio, fecha);
 
-	    // Redirigir a la página de listado o a donde necesites ir
-	    response.sendRedirect(request.getContextPath() + "/admin/listaProductos");
+		if (id != null) {
+			// Actualizar el producto existente
+			an.editarProducto(producto); // Asume que tienes un método para actualizar en AdminNegocio
+		} else {
+			// Lógica de creación de un nuevo producto
+			an.crearProducto(producto); // Este es el código que ya tienes para crear
+		}
+
+		// Redirigir a la página de listado o a donde necesites ir
+		response.sendRedirect(request.getContextPath() + "/admin/listaProductos");
 	}
 
 }

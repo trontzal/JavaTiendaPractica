@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import= "com.tienda.entidades.Productos"
-    %>
+	pageEncoding="UTF-8" import="com.tienda.entidades.Productos"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -30,6 +28,7 @@
 		<div>
 			<button>Guardar</button>
 		</div>
+
 	</form>
 </body>
 </html>

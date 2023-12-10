@@ -26,7 +26,7 @@
 						<td>${p.precio}</td>
 						<td>${p.fechaCaducidad}</td>
 						<td>
-							<button formaction="${pageContext.request.contextPath}/admin/crearProducto?id=${p.id}">Editar</button>
+							<a href="${pageContext.request.contextPath}/admin/crearProducto?id=10">Editar</a>
 						</td>
 						<td>
 							<button formaction="${pageContext.request.contextPath}/admin/eliminar?id=${p.id}">Eliminar</button>

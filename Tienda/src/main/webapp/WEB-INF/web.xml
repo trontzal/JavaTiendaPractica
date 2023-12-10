@@ -59,4 +59,14 @@
     <servlet-name>ModificarProductoServlet</servlet-name>
     <url-pattern>/ModificarProductoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditarProdutoServlet</display-name>
+    <servlet-name>EditarProdutoServlet</servlet-name>
+    <servlet-class>com.tienda.presentacion.backend.admin.EditarProdutoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditarProdutoServlet</servlet-name>
+    <url-pattern>/EditarProdutoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
